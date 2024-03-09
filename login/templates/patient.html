@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en-US" dir="ltr"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Phoenix</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/simplebar.min.js"></script>
+    <script src="js/config.js"></script>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="css/simplebar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/line.css') }}">
+    <link href="{{ url_for('static', filename='css/theme-rtl.min.css') }}" type="text/css" rel="stylesheet" id="style-rtl">
+    <link href="{{ url_for('static', filename='css/theme.min.css') }}" type="text/css" rel="stylesheet" id="style-default">
+    <link href="{{ url_for('static', filename='css/user-rtl.min.css') }}" type="text/css" rel="stylesheet" id="user-style-rtl">
+    <link href="{{ url_for('static', filename='css/user.min.css') }}" type="text/css" rel="stylesheet" id="user-style-default">
+    <script>
+      var phoenixIsRTL = window.config.config.phoenixIsRTL;
+      if (phoenixIsRTL) {
+        var linkDefault = document.getElementById('style-default');
+        var userLinkDefault = document.getElementById('user-style-default');
+        linkDefault.setAttribute('disabled', true);
+        userLinkDefault.setAttribute('disabled', true);
+        document.querySelector('html').setAttribute('dir', 'rtl');
+      } else {
+        var linkRTL = document.getElementById('style-rtl');
+        var userLinkRTL = document.getElementById('user-style-rtl');
+        linkRTL.setAttribute('disabled', true);
+        userLinkRTL.setAttribute('disabled', true);
+      }
+    </script>
+    <link href="css/leaflet.css" rel="stylesheet">
+    <link href="css/MarkerCluster.css" rel="stylesheet">
+    <link href="css/MarkerCluster.Default.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      
+      
+      <div class="content">
+        
+        <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-white pt-7 border-y border-300">
+          <div data-list="{" valueNames":["product","customer","rating","review","time"],"page":6}">
+            <div class="row align-items-end justify-content-between pb-5 g-3">
+              <div class="col-auto">
+                <h3>Patient List</h3>
+                <!-- <p class="text-700 lh-sm mb-0">Payment received across all channels</p> -->
+              </div>
+            </div>
+            <div class="table-responsive mx-n1 px-1 scrollbar">
+              <table class="table fs--1 mb-0 border-top border-200">
+                <thead>
+                  <tr>
+                    <!-- <th class="white-space-nowrap fs--1 ps-0 align-middle"> -->
+                      <!-- <div class="form-check mb-0 fs-0"><input class="form-check-input" id="checkbox-bulk-reviews-select" type="checkbox" data-bulk-select="{" body":"table-latest-review-body"}"></div> -->
+                    <!-- </th> -->
+                    <!-- <th class="sort white-space-nowrap align-middle" scope="col"></th> -->
+                    <th class="sort white-space-nowrap align-middle" scope="col" style="min-width:360px;" data-sort="product">Time</th>
+                    <th class="sort align-middle" scope="col" data-sort="customer" style="min-width:200px;">Activity</th>
+                    <!-- <th class="sort align-middle" scope="col" data-sort="rating" style="min-width:110px;">Gender</th> -->
+                    <!-- <th class="align-middle" scope="col" data-sort="rating" style="min-width:110px;"></th> -->
+
+                    <!-- <th class="sort align-middle" scope="col" style="max-width:350px;" data-sort="review">REVIEW</th>
+                    <th class="sort text-start ps-5 align-middle" scope="col" data-sort="status">STATUS</th>
+                    <th class="sort text-end align-middle" scope="col" data-sort="time">TIME</th> -->
+                    <th class="sort text-end pe-0 align-middle" scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody class="list" id="table-latest-review-body">
+                  
+                  
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+        </div>
+        <form action="{{ url_for('execute') }}" method="post">
+            <button type="submit" class="btn btn-primary btn-lg" >Start</button>
+        </form>
+        <form action="{{ url_for('predict') }}" method="post">
+            <button type="submit" class="btn btn-primary btn-lg">Stop</button>
+        </form>
+
+        
+        
+      </div>
+    
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+    
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/anchor.min.js"></script>
+    <script src="js/is.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="js/list.min.js"></script>
+    <script src="js/feather.min.js"></script>
+    <script src="js/dayjs.min.js"></script>
+    <script src="js/phoenix.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbaQGvhe7Af-uOMJz68NWHnO34UjjE7Lo&amp;callback=revenueMapInit" async></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="js/leaflet-tilelayer-colorfilter.min.js"></script>
+    <script src="js/ecommerce-dashboard.js"></script>
+
+
+    <script>
+        var resultString = `{{ result|safe }}`;
+        var resultArray = JSON.parse(resultString.replace(/&quot;/g, '"'));
+    
+        const tableBody = document.querySelector('tbody');
+        resultArray.forEach((item) => {
+            var row = document.createElement('tr');
+            var timeCell = document.createElement('td');
+            var descriptionCell = document.createElement('td');
+    
+            var dateTime = new Date(item[0]);
+            var time = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    
+            timeCell.textContent = time;
+            descriptionCell.textContent = item[1];
+    
+            row.appendChild(timeCell);
+            row.appendChild(descriptionCell);
+    
+            tableBody.appendChild(row);
+
+            function execute_script() {
+            fetch('/execute', { method: 'POST' })
+                .then(response => {
+                if (response.ok) {
+                    console.log('Script executed successfully');
+                } else {
+                    console.error('Failed to execute script');
+                }
+                })
+                .catch(error => {
+                console.error('Error:', error);
+                });
+            }
+        });
+    </script>
+
+
+  
+
+</body></html>

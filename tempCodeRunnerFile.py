@@ -1,0 +1,1 @@
+subprocess.run(["matlab", "-nosplash", "-nodesktop", "-r", f"run('{'Extract'}');exit;"],check=True)

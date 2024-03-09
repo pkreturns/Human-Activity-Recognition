@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="msapplication-TileColor" content="#0E0E0E">
+    <meta name="template-color" content="#0E0E0E">
+    <link rel="manifest" href="manifest.json" crossorigin>
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="description" content="Index page">
+    <meta name="keywords" content="index, page">
+    <meta name="author" content>
+    <link rel="shortcut icon" type="image/x-icon" href="fonts/favicon.svg">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    
+
+    <title>ElderLog Activity Tracking </title>
+  </head>
+  <body>
+    <!-- <div id="preloader-active">
+      <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+          <div class="text-center"><img src="images/loading.gif" alt="jobBox"></div>
+        </div>
+      </div>
+    </div> -->
+    
+    
+    
+    <main class="main">
+      <section class="pt-100 login-register">
+        <div class="container"> 
+          <div class="row login-register-cover">
+            <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+              <div class="text-center">
+                <p class="font-sm text-brand-2">OLTRAX  </p>
+                <h2 class="mt-10 mb-5 text-brand-1">Nurse Login</h2>
+                <p class="font-sm text-muted mb-30">Enter Your Information</p>
+              </div>
+              <form class="login-register text-start mt-20" action="{{ url_for('login') }}" method="post">
+                <div>{{msg}}</div>
+                <div class="form-group">
+                  <label class="form-label" for="input-1">Username</label>
+                  <input class="form-control" id="input-1" type="text" required name="username" placeholder="Type your username">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="input-4">Password </label>
+                  <input class="form-control" id="input-4" type="password" required name="password" placeholder="Enter password">
+                </div>
+                
+                <div class="form-group">
+                  <button class="btn btn-brand-1 hover-up w-100" type="submit" name="login">Login</button>
+                </div>
+                
+              </form>
+            </div>
+            <div class="img-1 d-none d-lg-block"><img class="shape-1" src="{{ url_for('static', filename='img-4.svg') }}" alt="JobBox"></div>
+            <div class="img-2"><img src="{{ url_for('static', filename='img-3.svg') }}" alt="JobBox"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <script src="../js/modernizr-3.6.0.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery-migrate-3.3.0.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/waypoints.js"></script>
+    <script src="../js/wow.js"></script>
+    <script src="../js/magnific-popup.js"></script>
+    <script src="../js/perfect-scrollbar.min.js"></script>
+    <script src="../js/select2.min.js"></script>
+    <script src="../js/isotope.js"></script>
+    <script src="../js/scrollup.js"></script>
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+  
+</body></html>
